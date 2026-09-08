@@ -1,0 +1,138 @@
+{
+  "landingPage": "/",
+  "preferredVersions": {
+    "php": "8.2",
+    "wp": "latest"
+  },
+  "phpExtensionBundles": [
+    "kitchen-sink"
+  ],
+  "features": {
+    "networking": true
+  },
+  "steps": [
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "wordpress.org/plugins",
+        "slug": "picture-gallery"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "mkdir",
+      "path": "/wordpress/wp-content/uploads/picture-gallery-demo/originals"
+    },
+    {
+      "step": "mkdir",
+      "path": "/wordpress/wp-content/uploads/picture-gallery-demo/thumbnails"
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/picture-gallery-demo/originals/studio-ceramics.jpg",
+      "data": {
+        "resource": "url",
+        "url": "__ASSET_BASE_URL__/picture-gallery/images/originals/studio-ceramics.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/picture-gallery-demo/thumbnails/studio-ceramics.jpg",
+      "data": {
+        "resource": "url",
+        "url": "__ASSET_BASE_URL__/picture-gallery/images/thumbnails/studio-ceramics.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/picture-gallery-demo/originals/balcony-garden.jpg",
+      "data": {
+        "resource": "url",
+        "url": "__ASSET_BASE_URL__/picture-gallery/images/originals/balcony-garden.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/picture-gallery-demo/thumbnails/balcony-garden.jpg",
+      "data": {
+        "resource": "url",
+        "url": "__ASSET_BASE_URL__/picture-gallery/images/thumbnails/balcony-garden.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/picture-gallery-demo/originals/reading-nook.jpg",
+      "data": {
+        "resource": "url",
+        "url": "__ASSET_BASE_URL__/picture-gallery/images/originals/reading-nook.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/picture-gallery-demo/thumbnails/reading-nook.jpg",
+      "data": {
+        "resource": "url",
+        "url": "__ASSET_BASE_URL__/picture-gallery/images/thumbnails/reading-nook.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/picture-gallery-demo/originals/forest-cabin.jpg",
+      "data": {
+        "resource": "url",
+        "url": "__ASSET_BASE_URL__/picture-gallery/images/originals/forest-cabin.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/picture-gallery-demo/thumbnails/forest-cabin.jpg",
+      "data": {
+        "resource": "url",
+        "url": "__ASSET_BASE_URL__/picture-gallery/images/thumbnails/forest-cabin.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/picture-gallery-demo/originals/seasonal-flowers.jpg",
+      "data": {
+        "resource": "url",
+        "url": "__ASSET_BASE_URL__/picture-gallery/images/originals/seasonal-flowers.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/picture-gallery-demo/thumbnails/seasonal-flowers.jpg",
+      "data": {
+        "resource": "url",
+        "url": "__ASSET_BASE_URL__/picture-gallery/images/thumbnails/seasonal-flowers.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/picture-gallery-demo/originals/coastal-table.jpg",
+      "data": {
+        "resource": "url",
+        "url": "__ASSET_BASE_URL__/picture-gallery/images/originals/coastal-table.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/picture-gallery-demo/thumbnails/coastal-table.jpg",
+      "data": {
+        "resource": "url",
+        "url": "__ASSET_BASE_URL__/picture-gallery/images/thumbnails/coastal-table.jpg"
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php'; $root = WP_CONTENT_DIR . '/uploads/picture-gallery-demo'; $settings = VWpictureGallery::getOptions(); $settings['custom_post'] = 'picture'; $settings['custom_taxonomy'] = 'gallery'; $settings['pictures'] = '1'; $settings['uploadsPath'] = $root; $settings['thumbWidth'] = '240'; $settings['thumbHeight'] = '180'; $settings['listingsMenu'] = '0'; $settings['mediaLibrary'] = '0'; $settings['mediaLibraryThumb'] = '0'; $settings['rateStarReview'] = '0'; $settings['watchList'] = 'Guest'; $settings['disableSetupPages'] = '0'; $settings['playgroundDemo'] = '1'; update_option('VWpictureGalleryOptions', $settings); VWpictureGallery::picture_post(); VWpictureGallery::setupPages(); VWpictureGallery::setupPlaygroundDemo(); if (!post_type_exists('picture') || !taxonomy_exists('gallery')) { throw new RuntimeException('Picture Gallery post type or taxonomy was not registered.'); } $items = array(array('studio-ceramics', 'studio-ceramics.jpg'), array('balcony-garden', 'balcony-garden.jpg'), array('reading-nook', 'reading-nook.jpg'), array('forest-cabin', 'forest-cabin.jpg'), array('seasonal-flowers', 'seasonal-flowers.jpg'), array('coastal-table', 'coastal-table.jpg')); foreach ($items as $item) { $source = $root . '/originals/' . $item[1]; $thumbnail = $root . '/thumbnails/' . $item[1]; if (!is_readable($source) || !is_readable($thumbnail)) { throw new RuntimeException('A required demo asset is missing: ' . $item[1]); } $posts = get_posts(array('post_type' => 'picture', 'post_status' => 'any', 'posts_per_page' => 1, 'meta_key' => 'vwpg_playground_demo_key', 'meta_value' => $item[0], 'fields' => 'ids')); if (!$posts) { throw new RuntimeException('A required Picture Gallery demo record is missing: ' . $item[0]); } $post_id = (int) $posts[0]; update_post_meta($post_id, 'picture-source-file', $source); update_post_meta($post_id, 'picture-thumbnail', $thumbnail); update_post_meta($post_id, 'picture-width', 1536); update_post_meta($post_id, 'picture-height', 1024); } ?>"
+    },
+    {
+      "step": "login",
+      "username": "admin",
+      "password": "password"
+    }
+  ]
+}
