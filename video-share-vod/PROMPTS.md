@@ -29,3 +29,7 @@ Photorealistic cinematic VOD poster still, 16:9 landscape, of a generic adult co
 ## Cats at play
 
 Photorealistic cinematic VOD poster still, 16:9 landscape, of two playful house cats chasing a soft fabric ribbon in a bright cozy living room with a large window and warm morning light. A lively frozen moment, one cat airborne, warm natural colors, elegant home-documentary composition, animal-friendly.
+
+## Stand-up show
+
+Photorealistic cinematic VOD poster still of a dynamic stand-up comedy show in a warmly lit small theatre. A generic adult comedian holds an unbranded microphone on stage, with a softly blurred adult audience reacting naturally. Center the performer with safe headroom and side margins for a centered 320×213 listing crop. No celebrity or recognizable public figure.
