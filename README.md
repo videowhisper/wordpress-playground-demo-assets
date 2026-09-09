@@ -8,6 +8,8 @@ none of its files are included in a plugin ZIP.
 
 - `picture-gallery/` — original and thumbnail JPEG fixtures plus the seed
   blueprint template for Picture Gallery.
+- `broadcast-live-video/` — offline channel snapshots and thumbnails plus the
+  seed blueprint template for Broadcast Live Video.
 
 ## Consuming an asset package
 
