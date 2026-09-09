@@ -91,7 +91,7 @@
     },
     {
       "step": "runPHP",
-      "code": "<?php require_once '/wordpress/wp-load.php'; $settings = VWliveStreaming::getOptions(); $settings['playgroundDemo'] = '1'; $settings['postChannels'] = '1'; $settings['custom_post'] = 'channel'; $settings['channelUrl'] = 'post'; $settings['postTemplate'] = '+plugin'; $settings['disablePage'] = '0'; $settings['disablePageC'] = '0'; $settings['uploadsPath'] = WP_CONTENT_DIR . '/uploads/vwls-playground'; $settings['thumbWidth'] = '320'; $settings['thumbHeight'] = '213'; $settings['rateStarReview'] = '0'; update_option( 'VWliveStreamingOptions', $settings ); VWliveStreaming::channel_post(); flush_rewrite_rules(); VWliveStreaming::updatePages(); VWliveStreaming::setupPlaygroundDemo(); ?>"
+      "code": "<?php require_once '/wordpress/wp-load.php'; $settings = VWliveStreaming::getOptions(); $settings['playgroundDemo'] = '1'; $settings['postChannels'] = '1'; $settings['custom_post'] = 'channel'; $settings['channelUrl'] = 'post'; $settings['postTemplate'] = '+plugin'; $settings['disablePage'] = '0'; $settings['disablePageC'] = '0'; $settings['uploadsPath'] = WP_CONTENT_DIR . '/uploads/vwls-playground'; $settings['thumbWidth'] = '320'; $settings['thumbHeight'] = '213'; $settings['listingCSS'] = str_replace( 'height: 240px;', 'height: 213px;', $settings['listingCSS'] ); $settings['rateStarReview'] = '0'; update_option( 'VWliveStreamingOptions', $settings ); VWliveStreaming::channel_post(); flush_rewrite_rules(); VWliveStreaming::updatePages(); VWliveStreaming::setupPlaygroundDemo(); ?>"
     },
     {
       "step": "login",
