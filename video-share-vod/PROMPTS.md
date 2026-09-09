@@ -32,4 +32,4 @@ Photorealistic cinematic VOD poster still, 16:9 landscape, of two playful house 
 
 ## Stand-up show
 
-Photorealistic cinematic VOD poster still of a dynamic stand-up comedy show in a warmly lit small theatre. A generic adult comedian holds an unbranded microphone on stage, with a softly blurred adult audience reacting naturally. Center the performer with safe headroom and side margins for a centered 320×213 listing crop. No celebrity or recognizable public figure.
+Photorealistic cinematic VOD poster still of a dynamic stand-up comedy show in a warmly lit small theatre. A generic adult comedian holds an unbranded microphone on stage, with a softly blurred adult audience reacting naturally. Center the performer with safe headroom and side margins for a centered 240×180 listing crop. No celebrity or recognizable public figure.
