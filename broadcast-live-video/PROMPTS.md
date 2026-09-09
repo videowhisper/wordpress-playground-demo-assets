@@ -3,8 +3,8 @@
 Every asset uses this common constraint: original, unbranded, general-audience
 editorial image with no people, faces, visible text, lettering, logos,
 watermarks, signatures, copyrighted characters, UI panels, sensitive content,
-weapons, violence, or brand marks. Horizontal 3:2 composition, designed to
-remain clear when centre-cropped to a 320×240 channel thumbnail.
+weapons, violence, or brand marks. Horizontal 3:2 composition, preserved in
+the proportional 320×213 channel thumbnail with no crop.
 
 ## podcast-studio.jpg
 
