@@ -1,0 +1,17 @@
+Broadcast Live Video Playground demo assets
+Generated: 2026-09-09
+Generator: OpenAI ChatGPT built-in image generation (gpt-image 2.0)
+Owner / intended publisher: VideoWhisper
+License on publication: GPLv2 or later
+
+All six source images were generated for VideoWhisper from the prompts in
+PROMPTS.md. The 320x240 thumbnails are derived solely from those originals.
+No third-party source images, logos, visible text, or watermarks were used.
+
+Files:
+- podcast-studio.jpg — offline podcast channel
+- live-event-stage.jpg — offline live-event channel
+- studio-show.jpg — offline studio-show channel
+- greenhouse-camera.jpg — offline IP-camera channel
+- gaming-room.jpg — offline gaming channel
+- rooftop-playlist.jpg — offline scheduled-playlist channel
