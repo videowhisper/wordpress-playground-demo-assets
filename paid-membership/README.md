@@ -7,3 +7,11 @@ The generated images and their resized derivatives in this package are released 
 `images/covers/` contains 960x540 JPEGs and `images/thumbnails/` contains 480x270 JPEGs. Full generation prompts and hashes are in `asset-provenance.json`; PNG originals are retained in the project workspace, outside plugin runtime ZIPs. Derivatives use only resizing/JPEG compression. Covers are deliberately public marketing art, separate from protected content.
 
 Pin consuming Blueprint URLs to the immutable commit after publication. Do not fetch these assets automatically during normal plugin activation. Demo provisioning is an explicit Playground action.
+
+## Executable creator-site preview
+
+[Open the WordPress Playground demo](https://playground.wordpress.net/?blueprint-url=https%3A%2F%2Fplugins.svn.wordpress.org%2Fpaid-membership%2Fassets%2Fblueprints%2Fblueprint.json). The matching `blueprint.json` installs the current public MicroPayments, Video Share VOD and Picture Gallery plugins and the FansPaysite theme. It uses the immutable image/media commits recorded in the recipe, six fictional items and one draft, three fictional creators, and clearly fictional subscriptions and purchase records. No payment is collected. The two five-second clips are generated still-image motion with silent audio, not real films or recordings.
+
+Discover, Creator feed, Included with subscriptions, My purchases, My studio and the Northlight Studio single-creator page showcase distinct listing tasks over the same content model. The Public preview workflow creates independent public480-pixel promotional images; it does not protect a publicly reachable source file. No follow graph or recommendation service is implied.
+
+Provision only in a disposable fresh Playground sandbox. The script requires the explicit local provisioning flag and refuses an ordinary existing customer site. The disposable default login belongs only to the sandbox; no customer credential is embedded. Do not use this recipe to overwrite a customer site. The provisioning recipe is GPL-2.0-or-later; the generated art and synthetic demonstration clips are CC0-1.0.
