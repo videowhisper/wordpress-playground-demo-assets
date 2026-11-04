@@ -1,0 +1,26 @@
+{
+  "created": "2026-11-04",
+  "purpose": "Five-second synthetic still-motion sandbox video; not footage recorded at the depicted scene.",
+  "source": "Generated CC0 cover art from the adjacent image package.",
+  "tool": "FFmpeg 9.0, local generation; not bundled with plugins.",
+  "license": "CC0-1.0",
+  "codec": "H.264 baseline/yuv420p",
+  "dimensions": [
+    640,
+    360
+  ],
+  "duration_seconds": 5,
+  "audio": "Silent AAC 48kHz stereo; no third-party music.",
+  "files": [
+    {
+      "file": "coast.mp4",
+      "bytes": 285392,
+      "sha256": "5e1f59f6ea41fb63b737fdf2113068003e936a0b9c590f1ff30387022a9eb008"
+    },
+    {
+      "file": "ceramics.mp4",
+      "bytes": 210330,
+      "sha256": "3ae6eec0ddc61d8f40ebd33005ddb4eb6f937eddc40289a393815be0cd62a46b"
+    }
+  ]
+}
