@@ -1,0 +1,184 @@
+{
+  "landingPage": "/",
+  "preferredVersions": {
+    "php": "8.4",
+    "wp": "latest"
+  },
+  "phpExtensionBundles": [
+    "kitchen-sink"
+  ],
+  "features": {
+    "networking": true
+  },
+  "steps": [
+    {
+      "step": "defineWpConfigConsts",
+      "consts": {
+        "WP_MEMORY_LIMIT": "512M",
+        "WP_MAX_MEMORY_LIMIT": "512M",
+        "DISABLE_WP_CRON": true
+      }
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "url",
+        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.1.11.zip"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "mkdir",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_thumbs"
+    },
+    {
+      "step": "mkdir",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_previews"
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_thumbs/alpine-cabin.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/thumbnails/alpine-cabin.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_previews/alpine-cabin.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/originals/alpine-cabin.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_thumbs/pottery-workshop.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/thumbnails/pottery-workshop.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_previews/pottery-workshop.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/originals/pottery-workshop.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_thumbs/snowboard-descent.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/thumbnails/snowboard-descent.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_previews/snowboard-descent.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/originals/snowboard-descent.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_thumbs/mountain-bike-trail.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/thumbnails/mountain-bike-trail.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_previews/mountain-bike-trail.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/originals/mountain-bike-trail.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_thumbs/kiteboarding-sunset.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/thumbnails/kiteboarding-sunset.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_previews/kiteboarding-sunset.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/originals/kiteboarding-sunset.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_thumbs/dance-studio.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/thumbnails/dance-studio.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_previews/dance-studio.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/originals/dance-studio.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_thumbs/cats-at-play.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/thumbnails/cats-at-play.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_previews/cats-at-play.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/originals/cats-at-play.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_thumbs/standup-show.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/thumbnails/standup-show.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/vwvs-playground/_previews/standup-show.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/originals/standup-show.jpg"
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php'; $root = WP_CONTENT_DIR . '/uploads/vwvs-playground'; $settings = VWvideoShare::getOptions(); $settings['custom_post'] = 'video'; $settings['custom_taxonomy'] = 'playlist'; $settings['uploadsPath'] = $root; $settings['uploadsURL'] = content_url( '/uploads/vwvs-playground/' ); $settings['thumbWidth'] = '240'; $settings['thumbHeight'] = '180'; $settings['perPage'] = '8'; $settings['perRow'] = '3'; $settings['listingsMenu'] = '0'; $settings['rateStarReview'] = '0'; $settings['enable_exec'] = '0'; $settings['disableSetupPages'] = '0'; $settings['playgroundDemo'] = '1'; update_option( 'VWvideoShareOptions', $settings ); VWvideoShare::video_post(); VWvideoShare::setupPages(); VWvideoShare::setupPlaygroundDemo(); if ( ! post_type_exists( 'video' ) || ! taxonomy_exists( 'playlist' ) ) { throw new RuntimeException( 'Video Share VOD post type or taxonomy was not registered.' ); } $items = array( 'alpine-cabin', 'pottery-workshop', 'snowboard-descent', 'mountain-bike-trail', 'kiteboarding-sunset', 'dance-studio', 'cats-at-play', 'standup-show' ); foreach ( $items as $item ) { $thumbnail = $root . '/_thumbs/' . $item . '.jpg'; $preview = $root . '/_previews/' . $item . '.jpg'; if ( ! is_readable( $thumbnail ) || ! is_readable( $preview ) ) { throw new RuntimeException( 'A required VOD demo asset is missing: ' . $item ); } $posts = get_posts( array( 'post_type' => 'video', 'post_status' => 'any', 'posts_per_page' => 1, 'meta_key' => 'vwvs_playground_demo_key', 'meta_value' => $item, 'fields' => 'ids' ) ); if ( ! $posts ) { throw new RuntimeException( 'A required VOD demo record is missing: ' . $item ); } } ?>"
+    },
+    {
+      "step": "login",
+      "username": "admin",
+      "password": "password"
+    }
+  ],
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "Video Share VOD catalog",
+    "author": "videowhisper",
+    "description": "Browse eight fictional video entries with original generated posters and static full-size previews. FFmpeg processing and real payments are disabled in this sandbox."
+  }
+}
