@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-04",
+  "generation": "built-in image_gen tool",
+  "license": "CC0-1.0",
+  "purpose": "Content-agnostic public demo covers; not actual paid assets or interface mockups.",
+  "derivatives": "sips JPEG resize/compression only; theme default is a center crop of the coast original.",
+  "images": [
+    {
+      "key": "coast",
+      "prompt": "Use case: photorealistic-natural. Asset type: public demonstration thumbnail for a WordPress digital creator catalog, landscape 16:9 composition. Primary request: a cinematic still of a quiet rocky coast at sunrise, turquoise water, warm peach light, windswept dune grasses in the foreground, a small distant sailboat. Natural photographic texture, polished travel filmmaking cover, balanced scene that stays legible when cropped to 16:9 cards. No people, no text, no logos, no watermark. This is original content-agnostic demo cover art, not an app UI.",
+      "files": {
+        "assets/originals/coast.png": {
+          "bytes": 2984263,
+          "sha256": "d64ff00ad6cc68e6d92a6c55fbe08b1f9045f9266aa9e43501f5aa1e54dffbfa"
+        },
+        "assets/covers/coast.jpg": {
+          "bytes": 235587,
+          "sha256": "924d010b1982084847b2dcd17e3ab955069eb74fdd56587bfb62f1a0053f5252"
+        },
+        "assets/thumbnails/coast.jpg": {
+          "bytes": 65977,
+          "sha256": "99a2b372557e4a187dddb5b578bf80ce2224b911b215148e6d0f52f3b03fa302"
+        }
+      }
+    },
+    {
+      "key": "ceramics",
+      "prompt": "Use case: photorealistic-natural. Asset type: landscape 16:9 public demo thumbnail for a digital creator catalog. A warm sunlit ceramic artist's workbench, hands of an adult artisan shaping a small clay bowl on a pottery wheel, finished terracotta and cream vessels on a shelf, softly blurred studio plants. Close editorial photography with natural textures, warm ochre and sage palette. No face required, no text, no logos, no watermark. Original content-agnostic lesson cover, not app UI.",
+      "files": {
+        "assets/originals/ceramics.png": {
+          "bytes": 2434103,
+          "sha256": "c1cac397de0f7a1e56bdc90fbb82c32dcfda434c318e4e0a3768aba5d8afcc00"
+        },
+        "assets/covers/ceramics.jpg": {
+          "bytes": 175514,
+          "sha256": "30cd2e65ae9931060b72ecadabff90d448cc621a9ebca82c6dc4da4c5b787997"
+        },
+        "assets/thumbnails/ceramics.jpg": {
+          "bytes": 57486,
+          "sha256": "8ce9d5bc01d75e9f1a4b79a37a578019428a397119359f14192a77acfa928543"
+        }
+      }
+    },
+    {
+      "key": "botanical",
+      "prompt": "Use case: illustration-story. Asset type: landscape 16:9 public demo cover for a botanical sketchbook digital download. Elegant hand-painted watercolor and fine pencil botanical study of green fern fronds, delicate blue wildflowers and warm cream paper, a few artist's brushes at the edge. Sophisticated editorial art, airy composition, visibly different from photography. No readable writing, no letters, no logo, no watermark, no app UI.",
+      "files": {
+        "assets/originals/botanical.png": {
+          "bytes": 3115905,
+          "sha256": "812b4abe5861512a80611bbea43ca83b08d6e4303ea1bacb05611f23f6a91584"
+        },
+        "assets/covers/botanical.jpg": {
+          "bytes": 230273,
+          "sha256": "3c9de7af283122ef24de596ca705d7cc17904b246f8ac0d76e40b51930201d4f"
+        },
+        "assets/thumbnails/botanical.jpg": {
+          "bytes": 62436,
+          "sha256": "3189dfc1cfea649cc0b849dc7e0b5cc2c5a416280b4387bf6e5d1395f1658743"
+        }
+      }
+    },
+    {
+      "key": "music",
+      "prompt": "Use case: photorealistic-natural. Asset type: landscape 16:9 public demonstration thumbnail for an independent music creator's video lesson. A moody but welcoming recording studio with a rich walnut acoustic guitar in the foreground, analog mixing desk and warm amber practical lights, subtle indigo background, shallow depth of field, premium editorial photography. No people, no readable display text, no logos, no watermark, no UI.",
+      "files": {
+        "assets/originals/music.png": {
+          "bytes": 2081042,
+          "sha256": "193684764eae08cf2ec416024d33a4c0c588a9715d4df8b60e48e28f7f2a03bc"
+        },
+        "assets/covers/music.jpg": {
+          "bytes": 165495,
+          "sha256": "d7e3fd38ab8a1f22fce95077976d765d1b56e11acfe0fa89c9aacfb05f28ae23"
+        },
+        "assets/thumbnails/music.jpg": {
+          "bytes": 54284,
+          "sha256": "584e1ebad5c74f080c70b373d961b8007778e98843d0fd54215624e826639921"
+        }
+      }
+    },
+    {
+      "key": "kitchen",
+      "prompt": "Use case: photorealistic-natural. Asset type: landscape 16:9 public demo thumbnail for a cooking creator's digital guide. Overhead editorial photograph of a colorful seasonal cooking scene, ripe red tomatoes, fresh basil, sliced lemon, handmade pasta on a pale stone kitchen counter and a folded linen towel. Bright natural daylight, vivid appetizing green red and gold, thoughtful spacious composition. No people, no text, no logos, no watermark, no UI.",
+      "files": {
+        "assets/originals/kitchen.png": {
+          "bytes": 3022843,
+          "sha256": "8ed92c0f53281df549a326632bff3136fcb723c7f9fd8622b13b9f1a8a1e05f6"
+        },
+        "assets/covers/kitchen.jpg": {
+          "bytes": 232500,
+          "sha256": "b8190e0a6a4dc07af9712795f17fc76dcbfcb2e34f1e678b8daf4ee1916dc9b4"
+        },
+        "assets/thumbnails/kitchen.jpg": {
+          "bytes": 67024,
+          "sha256": "123bd10b88b588e6ada2b38b300df83bc7805a251724d917cfaf58d712b1954e"
+        }
+      }
+    },
+    {
+      "key": "mountains",
+      "prompt": "Use case: photorealistic-natural. Asset type: landscape 16:9 public demo cover for outdoor creator photos and films. An alpine lake reflecting snowy mountain peaks at blue hour, a tiny orange hiking tent beside the shore and evergreen trees framing the scene. Crisp cinematic travel photography with deep blue and pale turquoise tones, tranquil atmosphere. No people, no text, no logos, no watermark, no UI.",
+      "files": {
+        "assets/originals/mountains.png": {
+          "bytes": 2875686,
+          "sha256": "68cac64a60f1f771f9bb81df17a53a50cfaf7b606e1e4c5b20755b48cc2cfd48"
+        },
+        "assets/covers/mountains.jpg": {
+          "bytes": 226029,
+          "sha256": "cacdc5379e2e9479c241af41fc23b34ad247b6f0b21654003f1367dcbe0c4b00"
+        },
+        "assets/thumbnails/mountains.jpg": {
+          "bytes": 63440,
+          "sha256": "f9eb4824b0c0e285c834eaaf498f6b296c2ab61b4cee5849e5f8301dfef97703"
+        }
+      }
+    }
+  ],
+  "theme_default_sha256": "135a134b31f340e8f88633a92c9df78f4028d01b9f53af175101d428ee128ca2"
+}
