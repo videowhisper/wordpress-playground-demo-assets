@@ -28,7 +28,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.1.11.zip"
+        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.1.13.zip"
       },
       "options": {
         "activate": true
@@ -38,7 +38,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/picture-gallery.1.8.1.zip"
+        "url": "https://downloads.wordpress.org/plugin/picture-gallery.1.8.2.zip"
       },
       "options": {
         "activate": true
@@ -48,7 +48,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/paid-membership.4.1.0.zip"
+        "url": "https://downloads.wordpress.org/plugin/paid-membership.4.1.1.zip"
       },
       "options": {
         "activate": true
@@ -58,7 +58,7 @@
       "step": "installTheme",
       "themeData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/theme/fanspaysite.2.7.9.zip"
+        "url": "https://downloads.wordpress.org/theme/fanspaysite.2.7.10.zip"
       },
       "options": {
         "activate": true
