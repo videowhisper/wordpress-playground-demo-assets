@@ -55,3 +55,7 @@ downloaded only for this explicit demo, never during normal plugin activation.
 
 The release owner publishes and verifies the final immutable Blueprint URL
 after the pinned MicroPayments release and its new audio assets are available.
+
+## Retained recorder attempts
+
+The workflow guide links the native administrator Draft recovery screen. It can reconnect an existing draft only after the retained receipt, creator, accepted recording and separate audio copy are verified. The sandbox starts without accepted captures or interrupted attempts; none are fabricated. Recovery does not create replacement content, change offers, publish or remove media.
