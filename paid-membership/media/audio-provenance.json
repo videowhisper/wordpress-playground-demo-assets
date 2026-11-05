@@ -1,0 +1,20 @@
+{
+  "created": "2026-11-05",
+  "purpose": "Synthetic creator-catalog audio examples; generated tones are not music or human recordings.",
+  "generation": "Locally generated FFmpeg sine waves,440Hz original and660Hz independent sample; no external sound or voice.",
+  "license": "CC0-1.0",
+  "disclosure": "Fictional prices, memberships, purchase history and ratings; no real payment. Public demo originals are not privately delivered content.",
+  "files": [
+    {
+      "file": "studio-original.mp3",
+      "bytes": 96565,
+      "sha256": "ac6b018d4063851a407a26bebf59f683ca04883bbe60781403ad3e35427a10ef"
+    },
+    {
+      "file": "studio-sample.mp3",
+      "bytes": 16526,
+      "sha256": "9c3c8f985152d0d0beca9d95d49c893800bb253c4d00ae262a01b58714ad2622"
+    }
+  ],
+  "seed_approval": "Actual Audio_Download::refresh_metadata/set_sample and Library_Poster::set; no hand-written sample approvals or accepted recorder receipts."
+}
