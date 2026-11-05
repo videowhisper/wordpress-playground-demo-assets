@@ -1,0 +1,37 @@
+{
+  "landingPage": "/",
+  "preferredVersions": {
+    "php": "8.4",
+    "wp": "latest"
+  },
+  "phpExtensionBundles": [
+    "kitchen-sink"
+  ],
+  "steps": [
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "url",
+        "url": "https://downloads.wordpress.org/plugin/rate-star-review.1.7.0.zip"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php'; $options = VWrateStarReview::getOptions(); $options['review_posts'] = 'post'; $options['vote_posts'] = 'post'; $options['voting_categories'] = 'Rate Star Review Playground'; $options['micropayments'] = '0'; $options['rating_max'] = '5'; update_option( 'VWrateStarReview', $options ); VWrateStarReview::review_post(); $category = term_exists( 'rate-star-review-playground', 'category' ); if ( ! $category ) { $category = wp_insert_term( 'Rate Star Review Playground', 'category', array( 'slug' => 'rate-star-review-playground' ) ); } if ( is_wp_error( $category ) ) { throw new RuntimeException( $category->get_error_message() ); } $category_id = is_array( $category ) ? (int) $category['term_id'] : (int) $category; $post = get_page_by_path( 'rate-star-review-demo-post', OBJECT, 'post' ); if ( $post ) { $post_id = (int) $post->ID; } else { $post_id = wp_insert_post( array( 'post_type' => 'post', 'post_status' => 'publish', 'post_title' => 'A Better Weekend Guide', 'post_name' => 'rate-star-review-demo-post', 'post_content' => 'A fictional demo article for trying a star rating, a written review, and a free like vote. Ratings are illustrative; no real purchase or payment occurs.', 'comment_status' => 'closed' ), true ); if ( is_wp_error( $post_id ) ) { throw new RuntimeException( $post_id->get_error_message() ); } } wp_set_post_categories( $post_id, array( $category_id ), false ); update_post_meta( $post_id, 'rateStarReview_rating', '0.84' ); update_post_meta( $post_id, 'rateStarReview_ratingNumber', 12 ); update_post_meta( $post_id, 'rateStarReview_ratingPoints', '10.08' ); $page = get_page_by_path( 'rate-star-review-playground', OBJECT, 'page' ); $content = '<p>Try the rating, review, and like-vote controls on a disposable regular WordPress post. The review form is live for the signed-in Playground administrator.</p><p>All examples are fictional. Ratings are illustrative; likes are free and no payment occurs.</p><p><a class=\"wp-block-button__link wp-element-button\" href=\"' . esc_url( get_permalink( $post_id ) ) . '\">Open demo post</a></p><h2>Demo rating</h2>[videowhisper_rating post_id=\"' . (int) $post_id . '\" rating_max=\"5\"]<h2>Like this post</h2>[videowhisper_vote post_id=\"' . (int) $post_id . '\" id=\"playgroundvote\"]<h2>Write a review</h2>[videowhisper_review post_id=\"' . (int) $post_id . '\" content_type=\"post\" content_id=\"' . (int) $post_id . '\" id=\"playgroundreview\" update_id=\"playgroundreview\"]<h2>Recent reviews</h2>[videowhisper_reviews post_id=\"' . (int) $post_id . '\" show_average=\"0\" id=\"playgroundreview\"]'; $page_data = array( 'post_type' => 'page', 'post_status' => 'publish', 'post_title' => 'Rate Star Review Playground', 'post_name' => 'rate-star-review-playground', 'post_content' => $content, 'comment_status' => 'closed' ); if ( $page ) { $page_data['ID'] = (int) $page->ID; } $page_id = wp_insert_post( $page_data, true ); if ( is_wp_error( $page_id ) ) { throw new RuntimeException( $page_id->get_error_message() ); } update_option( 'show_on_front', 'page' ); update_option( 'page_on_front', (int) $page_id ); ?>"
+    },
+    {
+      "step": "login",
+      "username": "admin",
+      "password": "password"
+    }
+  ],
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "Rate Star Review playground",
+    "author": "videowhisper",
+    "description": "Try native star ratings, written reviews and free likes. Demo ratings are fictional and illustrative; no payment occurs."
+  }
+}

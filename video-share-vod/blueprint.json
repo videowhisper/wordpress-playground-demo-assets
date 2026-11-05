@@ -23,7 +23,27 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.1.13.zip"
+        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.2.0.zip"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "url",
+        "url": "https://downloads.wordpress.org/plugin/rate-star-review.1.7.0.zip"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "installTheme",
+      "themeData": {
+        "resource": "url",
+        "url": "https://downloads.wordpress.org/theme/fanspaysite.2.7.10.zip"
       },
       "options": {
         "activate": true
@@ -167,7 +187,11 @@
     },
     {
       "step": "runPHP",
-      "code": "<?php require_once '/wordpress/wp-load.php'; $root = WP_CONTENT_DIR . '/uploads/vwvs-playground'; $settings = VWvideoShare::getOptions(); $settings['custom_post'] = 'video'; $settings['custom_taxonomy'] = 'playlist'; $settings['uploadsPath'] = $root; $settings['uploadsURL'] = content_url( '/uploads/vwvs-playground/' ); $settings['thumbWidth'] = '240'; $settings['thumbHeight'] = '180'; $settings['perPage'] = '8'; $settings['perRow'] = '3'; $settings['listingsMenu'] = '0'; $settings['rateStarReview'] = '0'; $settings['enable_exec'] = '0'; $settings['disableSetupPages'] = '0'; $settings['playgroundDemo'] = '1'; update_option( 'VWvideoShareOptions', $settings ); VWvideoShare::video_post(); VWvideoShare::setupPages(); VWvideoShare::setupPlaygroundDemo(); if ( ! post_type_exists( 'video' ) || ! taxonomy_exists( 'playlist' ) ) { throw new RuntimeException( 'Video Share VOD post type or taxonomy was not registered.' ); } $items = array( 'alpine-cabin', 'pottery-workshop', 'snowboard-descent', 'mountain-bike-trail', 'kiteboarding-sunset', 'dance-studio', 'cats-at-play', 'standup-show' ); foreach ( $items as $item ) { $thumbnail = $root . '/_thumbs/' . $item . '.jpg'; $preview = $root . '/_previews/' . $item . '.jpg'; if ( ! is_readable( $thumbnail ) || ! is_readable( $preview ) ) { throw new RuntimeException( 'A required VOD demo asset is missing: ' . $item ); } $posts = get_posts( array( 'post_type' => 'video', 'post_status' => 'any', 'posts_per_page' => 1, 'meta_key' => 'vwvs_playground_demo_key', 'meta_value' => $item, 'fields' => 'ids' ) ); if ( ! $posts ) { throw new RuntimeException( 'A required VOD demo record is missing: ' . $item ); } } ?>"
+      "code": "<?php require_once '/wordpress/wp-load.php'; $root = WP_CONTENT_DIR . '/uploads/vwvs-playground'; $settings = VWvideoShare::getOptions(); $settings['custom_post'] = 'video'; $settings['custom_taxonomy'] = 'playlist'; $settings['uploadsPath'] = $root; $settings['uploadsURL'] = content_url( '/uploads/vwvs-playground/' ); $settings['thumbWidth'] = '240'; $settings['thumbHeight'] = '180'; $settings['perPage'] = '8'; $settings['perRow'] = '3'; $settings['listingsMenu'] = '0'; $settings['rateStarReview'] = '1'; $settings['listingStars'] = '1'; $settings['listingLikes'] = '1'; $settings['showLayoutSelector'] = '1'; $settings['catalogLayout'] = 'legacy'; $settings['enable_exec'] = '0'; $settings['disableSetupPages'] = '0'; $settings['playgroundDemo'] = '1'; update_option( 'VWvideoShareOptions', $settings ); VWvideoShare::video_post(); VWvideoShare::setupPages(); VWvideoShare::setupPlaygroundDemo(); if ( ! post_type_exists( 'video' ) || ! taxonomy_exists( 'playlist' ) ) { throw new RuntimeException( 'Video Share VOD post type or taxonomy was not registered.' ); } $items = array( 'alpine-cabin', 'pottery-workshop', 'snowboard-descent', 'mountain-bike-trail', 'kiteboarding-sunset', 'dance-studio', 'cats-at-play', 'standup-show' ); foreach ( $items as $item ) { $thumbnail = $root . '/_thumbs/' . $item . '.jpg'; $preview = $root . '/_previews/' . $item . '.jpg'; if ( ! is_readable( $thumbnail ) || ! is_readable( $preview ) ) { throw new RuntimeException( 'A required VOD demo asset is missing: ' . $item ); } $posts = get_posts( array( 'post_type' => 'video', 'post_status' => 'any', 'posts_per_page' => 1, 'meta_key' => 'vwvs_playground_demo_key', 'meta_value' => $item, 'fields' => 'ids' ) ); if ( ! $posts ) { throw new RuntimeException( 'A required VOD demo record is missing: ' . $item ); } } $term=term_exists('VOD demo ratings','category'); if(!$term){$term=wp_insert_term('VOD demo ratings','category');} if(is_wp_error($term)){throw new RuntimeException('Demo category unavailable');} $rate=VWrateStarReview::getOptions(); $rate['voting_categories']='VOD demo ratings'; $rate['vote_posts']='video'; $rate['micropayments']=0; $rate['retractVote']='1'; update_option('VWrateStarReview',$rate); foreach(get_posts(array('post_type'=>'video','post_status'=>'publish','posts_per_page'=>12))as$index=>$video){wp_set_post_categories($video->ID,array((int)$term['term_id']),true);update_post_meta($video->ID,'rateStarReview_rating',.8+($index%3)*.05);update_post_meta($video->ID,'rateStarReview_ratingNumber',8+$index);update_post_meta($video->ID,'rateStarReview_voteCount',0);} ?>"
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php\n/** Themed, fictional VOD demonstration; run only after the fresh Playground seed. */\nrequire_once '/wordpress/wp-load.php';\n$settings = VWvideoShare::getOptions();\n$home = get_post( (int) get_option( 'page_on_front' ) );\nif ( empty( $settings['playgroundDemo'] ) || ! $home || '1' !== get_post_meta( $home->ID, 'vwvs_playground_demo_home', true ) || 1 !== (int) count_users()['total_users'] ) { throw new RuntimeException( 'A fresh owned VOD Playground is required.' ); }\nadd_filter( 'pre_wp_mail', '__return_false', PHP_INT_MAX );\n$admins = get_users( array( 'role' => 'administrator', 'number' => 2 ) );\nif ( 1 !== count( $admins ) ) { throw new RuntimeException( 'One sandbox administrator is required.' ); }\n$admin = $admins[0];\nupdate_user_meta( $admin->ID, 'show_admin_bar_front', 'false' );\nwp_update_user( array( 'ID' => $admin->ID, 'display_name' => 'Studio Creator' ) );\nupdate_option( 'blogname', 'Studio Video' );\nupdate_option( 'blogdescription', 'Independent films and creative stories.' );\nupdate_option( 'show_avatars', 0 );\nupdate_option( 'blog_public', 0 );\nupdate_option( 'permalink_structure', '/%postname%/' );\n$content = '<p>Explore films, creative workshops and everyday stories. Switch layouts to find your preferred view.</p><p><small>Ratings are fictional demo data. These generated posters and static previews do not represent full video playback or real purchases.</small></p>[videowhisper_videos playlist=\"playground-showcase\" perpage=\"8\" perrow=\"3\" menu=\"0\" select_category=\"1\" select_order=\"1\" select_page=\"1\" select_tags=\"1\" select_name=\"1\" id=\"VodShowcase\"]';\n$saved = wp_update_post( array( 'ID' => $home->ID, 'post_title' => 'Video library', 'post_content' => $content ), true );\nif ( is_wp_error( $saved ) ) { throw new RuntimeException( 'The owned VOD home could not be configured.' ); }\nif ( 'fanspaysite' === get_stylesheet() ) {\n\tset_theme_mod( 'fanspaysite_layout', 'top-bar' );\n\tset_theme_mod( 'fanspaysite_content_width', 'wide' );\n\tset_theme_mod( 'fanspaysite_show_right_sidebar', 'no' );\n\tset_theme_mod( 'fanspaysite_default_theme_mode', 'light' );\n\tset_theme_mod( 'fanspaysite_show_theme_mode_switcher', 'yes' );\n\t$menu = wp_create_nav_menu( 'VOD showcase' );\n\tif ( is_wp_error( $menu ) ) { throw new RuntimeException( 'The showcase menu could not be created.' ); }\n\twp_update_nav_menu_item( $menu, 0, array( 'menu-item-title' => 'Videos', 'menu-item-object' => 'page', 'menu-item-object-id' => $home->ID, 'menu-item-type' => 'post_type', 'menu-item-status' => 'publish' ) );\n\t$upload = (int) ( $settings['p_videowhisper_plupload'] ?? 0 );\n\tif ( $upload && get_post( $upload ) ) { wp_update_nav_menu_item( $menu, 0, array( 'menu-item-title' => 'Upload', 'menu-item-object' => 'page', 'menu-item-object-id' => $upload, 'menu-item-type' => 'post_type', 'menu-item-status' => 'publish' ) ); }\n\tset_theme_mod( 'nav_menu_locations', array( 'menu-1' => (int) $menu ) );\n}\nupdate_option( 'vwvs_themed_showcase_v1', array( 'page' => $home->ID, 'items' => 8, 'fictional_ratings' => true, 'real_payments' => false ), false );\nflush_rewrite_rules( false );\n"
     },
     {
       "step": "login",
@@ -177,8 +201,8 @@
   ],
   "$schema": "https://playground.wordpress.net/blueprint-schema.json",
   "meta": {
-    "title": "Video Share VOD catalog",
+    "title": "Video Share VOD: themed video library",
     "author": "videowhisper",
-    "description": "Browse eight fictional video entries with original generated posters and static full-size previews. FFmpeg processing and real payments are disabled in this sandbox."
+    "description": "Eight fictional video entries with generated posters, native layout controls, illustrative ratings/likes and optional FansPaysite light/dark appearance. No real payments or processing."
   }
 }
