@@ -38,7 +38,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.3.0.zip"
+        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.7.0.zip"
       },
       "options": {
         "activate": true
@@ -58,7 +58,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/paid-membership.4.4.0.zip"
+        "url": "https://downloads.wordpress.org/plugin/paid-membership.4.9.0.zip"
       },
       "options": {
         "activate": true
@@ -68,7 +68,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/video-posts-webcam-recorder.3.5.0.zip"
+        "url": "https://downloads.wordpress.org/plugin/video-posts-webcam-recorder.3.7.0.zip"
       },
       "options": {
         "activate": true
