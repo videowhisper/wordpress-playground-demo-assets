@@ -1,0 +1,44 @@
+[
+  {
+    "file": "avatar-maya.jpg",
+    "method": "built-in image_gen",
+    "purpose": "Fictional creator demo avatar",
+    "sha256": "afd1f00d6ee1d82eb30624b0f8a107ed55a54e6c1a2df1ec98e4fd91aa51377e",
+    "fictional": true
+  },
+  {
+    "file": "avatar-leo.jpg",
+    "method": "built-in image_gen",
+    "purpose": "Fictional creator demo avatar",
+    "sha256": "b0be978bb814d5c272441344391e8b5f9d0f551d3e881378734d223b8ed3c01f",
+    "fictional": true
+  },
+  {
+    "file": "content-ceramics.jpg",
+    "method": "built-in image_gen",
+    "purpose": "Fictional content demo cover",
+    "sha256": "017ff419138f55bce8b8118fa5756e16947f92880079212b327d136970b4c5e6",
+    "fictional": true
+  },
+  {
+    "file": "content-sound.jpg",
+    "method": "built-in image_gen",
+    "purpose": "Fictional content demo cover",
+    "sha256": "8b1cd1d37d91f8c54fe13c809c7264dd468d332a5b137ede45d5e404a1c17ced",
+    "fictional": true
+  },
+  {
+    "file": "content-glazes.jpg",
+    "method": "built-in image_gen",
+    "purpose": "Fictional portrait content demo cover",
+    "sha256": "5ba64700b1545a747de6e900fb87935629ef45a6f02e4e5bee16c291244f9ac8",
+    "fictional": true
+  },
+  {
+    "file": "content-journal.jpg",
+    "method": "built-in image_gen",
+    "purpose": "Fictional portrait content demo cover",
+    "sha256": "0c9b5a95277e90bdb6cff3920cc8a757725a0d65ee884003959a56fc1b416403",
+    "fictional": true
+  }
+]
