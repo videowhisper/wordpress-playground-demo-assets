@@ -23,7 +23,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.9.0.zip"
+        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.9.1.zip"
       },
       "options": {
         "activate": true
@@ -62,7 +62,7 @@
       "path": "/wordpress/wp-content/uploads/vwvs-playground/_thumbs/alpine-cabin.jpg",
       "data": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/thumbnails/alpine-cabin.jpg"
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/f0dbb13819be07f3923129b772c2647d91f68b15/creator-library/content-sound.jpg"
       }
     },
     {
@@ -70,7 +70,7 @@
       "path": "/wordpress/wp-content/uploads/vwvs-playground/_previews/alpine-cabin.jpg",
       "data": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/originals/alpine-cabin.jpg"
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/f0dbb13819be07f3923129b772c2647d91f68b15/creator-library/content-sound.jpg"
       }
     },
     {
@@ -78,7 +78,7 @@
       "path": "/wordpress/wp-content/uploads/vwvs-playground/_thumbs/pottery-workshop.jpg",
       "data": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/thumbnails/pottery-workshop.jpg"
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/f0dbb13819be07f3923129b772c2647d91f68b15/creator-library/content-ceramics.jpg"
       }
     },
     {
@@ -86,7 +86,7 @@
       "path": "/wordpress/wp-content/uploads/vwvs-playground/_previews/pottery-workshop.jpg",
       "data": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/7026ceef12dea6f6ba56b2f9859e938c6be494c5/video-share-vod/images/originals/pottery-workshop.jpg"
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/f0dbb13819be07f3923129b772c2647d91f68b15/creator-library/content-ceramics.jpg"
       }
     },
     {
@@ -203,6 +203,6 @@
   "meta": {
     "title": "Video Share VOD: themed video library",
     "author": "videowhisper",
-    "description": "Eight fictional video entries with generated posters, native layout controls, illustrative ratings/likes and optional FansPaysite light/dark appearance. No real payments or processing."
+    "description": "Eight fictional video entries with generated posters, native layout controls, illustrative ratings/likes and optional FansPaysite light/dark appearance. No real payments or processing. Latest verified native listings with fictional generated creator/content imagery. No real payment or membership grant is simulated."
   }
 }

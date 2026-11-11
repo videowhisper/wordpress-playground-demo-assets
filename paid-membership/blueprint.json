@@ -3,7 +3,7 @@
   "meta": {
     "title": "Creator accounts, profiles and followed content",
     "author": "videowhisper",
-    "description": "Fictional video/photo/document/audio catalog with five layouts, stars/likes, creator workspaces and optional browser capture. New captures use native review mode. Generated artwork and tones; no real payment. Optional native sign-in/signup/recovery, reviewed creator requests, public profiles and a private Following feed. Local demo email is suppressed; fictional credentials and artwork only. Configurable expandable purchase disclosures use a separate public demonstration terms page; no checkout, real payment or commercial grant is created."
+    "description": "Fictional video/photo/document/audio catalog with five layouts, stars/likes, creator workspaces and optional browser capture. New captures use native review mode. Generated artwork and tones; no real payment. Optional native sign-in/signup/recovery, reviewed creator requests, public profiles and a private Following feed. Local demo email is suppressed; fictional credentials and artwork only. Configurable expandable purchase disclosures use a separate public demonstration terms page; no checkout, real payment or commercial grant is created. Latest verified native listings with fictional generated creator/content imagery. No real payment or membership grant is simulated."
   },
   "landingPage": "/",
   "preferredVersions": {
@@ -38,7 +38,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.9.0.zip"
+        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.9.1.zip"
       },
       "options": {
         "activate": true
@@ -48,7 +48,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/picture-gallery.1.11.0.zip"
+        "url": "https://downloads.wordpress.org/plugin/picture-gallery.1.11.1.zip"
       },
       "options": {
         "activate": true
@@ -58,7 +58,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/paid-membership.4.15.0.zip"
+        "url": "https://downloads.wordpress.org/plugin/paid-membership.4.17.0.zip"
       },
       "options": {
         "activate": true
@@ -206,6 +206,62 @@
     {
       "step": "runPHP",
       "code": "<?php require_once '/wordpress/wp-load.php';wp_set_current_user(1);$id=wp_insert_post(array('post_type'=>'page','post_status'=>'publish','post_title'=>'Demonstration purchase terms','post_name'=>'demo-purchase-terms','post_content'=>'<h2>Demonstration terms</h2><p>Fictional creator samples for exploring the interface. No real purchase, agreement or service is created. Review and replace all purchase wording before using a real site.</p>'));if(!$id||is_wp_error($id)){throw new RuntimeException('Demonstration terms page failed.');}$t=\\VideoWhisper\\PaidContent\\Purchase_Terms::defaults();$t['site_page']=(int)$id;update_option(\\VideoWhisper\\PaidContent\\Purchase_Terms::OPTION,$t,false);"
+    },
+    {
+      "step": "mkdir",
+      "path": "/wordpress/wp-content/uploads/creator-library"
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/creator-library/avatar-maya.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/f0dbb13819be07f3923129b772c2647d91f68b15/creator-library/avatar-maya.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/creator-library/avatar-leo.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/f0dbb13819be07f3923129b772c2647d91f68b15/creator-library/avatar-leo.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/creator-library/content-ceramics.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/f0dbb13819be07f3923129b772c2647d91f68b15/creator-library/content-ceramics.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/creator-library/content-sound.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/f0dbb13819be07f3923129b772c2647d91f68b15/creator-library/content-sound.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/creator-library/content-glazes.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/f0dbb13819be07f3923129b772c2647d91f68b15/creator-library/content-glazes.jpg"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/creator-library/content-journal.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/videowhisper/wordpress-playground-demo-assets/f0dbb13819be07f3923129b772c2647d91f68b15/creator-library/content-journal.jpg"
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php\nrequire_once '/wordpress/wp-load.php';\nuse VideoWhisper\\PaidContent\\Library_Poster as L;use VideoWhisper\\PaidContent\\Creator_Storefront as P;\nif('local'!==wp_get_environment_type()||!defined('VWPM_SHOWCASE_PROVISION')||get_option('vwpm_creator_artwork_v1'))throw new RuntimeException('Fresh explicitly provisioned local showcase required.');\n$f=get_option('vwpm_showcase_v1');if(!is_array($f)||count($f['creators'])!==3)throw new RuntimeException('Native fictional creator fixtures required.');require_once ABSPATH.'wp-admin/includes/image.php';$created=array();$old=get_current_user_id();\n$attach=static function($key,$owner)use(&$created){$path=WP_CONTENT_DIR.'/uploads/creator-library/'.$key.'.jpg';if(!is_file($path))throw new RuntimeException('Generated artwork missing.');$up=wp_upload_bits($key.'-'.wp_generate_uuid4().'.jpg',null,file_get_contents($path));if($up['error'])throw new RuntimeException('Artwork import failed.');$id=wp_insert_attachment(array('post_title'=>'Fictional creator demo: '.$key,'post_mime_type'=>'image/jpeg','post_author'=>$owner),$up['file']);wp_update_attachment_metadata($id,wp_generate_attachment_metadata($id,$up['file']));$created[]=$id;return $id;};\nforeach(array(0=>array('Maya Clay Studio','avatar-maya'),1=>array('Leo Field Recordings','avatar-leo'))as$index=>$def){$owner=$f['creators'][$index];wp_update_user(array('ID'=>$owner,'display_name'=>$def[0]));wp_set_current_user($owner);$id=wp_insert_post(array('post_type'=>'post','post_status'=>'publish','post_author'=>$owner,'post_title'=>'Meet '.$def[0],'post_content'=>'Fictional creator introduction for this local demonstration. Generated imagery; no real creator account or service.'));$created[]=$id;set_post_thumbnail($id,$attach($def[1],$owner));if(true!==L::set($id,true,wp_create_nonce('vwpm_library_poster_'.$id)))throw new RuntimeException('Native public poster approval failed.');$profile=get_user_meta($owner,'vwpm_storefront_site_'.get_current_blog_id(),true);$r=P::save(array('_wpnonce'=>wp_create_nonce('vwpm_storefront_'.get_current_blog_id().'_'.$owner),'revision'=>hash('sha256',maybe_serialize(get_user_meta($owner,'vwpm_storefront_site_'.get_current_blog_id(),true))),'public'=>'1','tagline'=>$profile['tagline']??'Independent creative practice','bio'=>$profile['bio']??'Fictional creator demonstration.','cover_post'=>(string)($profile['cover_post']??0),'avatar_post'=>(string)$id,'website'=>'https://example.com/','specialty'=>array('Handmade creative practice','Music and field notes')[$index]));if(is_wp_error($r))throw new RuntimeException($r->get_error_message());}\n$art=array('content-ceramics','content-sound','content-glazes','content-journal');$i=0;foreach($f['posts']as$id){$p=get_post($id);if(!$p||!in_array($p->post_type,array('post','video','picture','download'),true))continue;wp_set_current_user(1);set_post_thumbnail($id,$attach($art[$i++%count($art)],(int)$p->post_author));if(true!==L::set($id,true,wp_create_nonce('vwpm_library_poster_'.$id)))throw new RuntimeException('Native content poster approval failed.');}\nwp_set_current_user($old);update_option('vwpm_creator_artwork_v1',array('items'=>$created,'creators'=>array_slice($f['creators'],0,2),'generated'=>true,'real_payments'=>false,'no_paid_grants_seeded'=>true),false);echo 'Fictional local avatars and content posters approved through native services.';\n"
     },
     {
       "step": "login",
