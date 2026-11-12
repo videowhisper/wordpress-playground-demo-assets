@@ -3,7 +3,7 @@
   "meta": {
     "title": "Creator accounts, profiles and followed content",
     "author": "videowhisper",
-    "description": "Fictional video/photo/document/audio catalog with five layouts, stars/likes, creator workspaces and optional browser capture. New captures use native review mode. Generated artwork and tones; no real payment. Optional native sign-in/signup/recovery, reviewed creator requests, public profiles and a private Following feed. Local demo email is suppressed; fictional credentials and artwork only. Configurable expandable purchase disclosures use a separate public demonstration terms page; no checkout, real payment or commercial grant is created. Latest verified native listings with fictional generated creator/content imagery. No real payment or membership grant is simulated."
+    "description": "Fictional video/photo/document/audio catalog with five layouts, stars/likes, creator workspaces and optional browser capture. New captures use native review mode. Generated artwork and tones; no real payment. Optional native sign-in/signup/recovery, reviewed creator requests, public profiles and a private Following feed. Local demo email is suppressed; fictional credentials and artwork only. Configurable expandable purchase disclosures use a separate public demonstration terms page; no checkout, real payment or commercial grant is created. Latest verified native listings with fictional generated creator/content imagery. No real payment or membership grant is simulated. Private first-publication guidance and read-only readiness are available from the creator workspace and administrator menu."
   },
   "landingPage": "/",
   "preferredVersions": {
@@ -38,7 +38,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.9.1.zip"
+        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.9.2.zip"
       },
       "options": {
         "activate": true
@@ -48,7 +48,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/picture-gallery.1.11.1.zip"
+        "url": "https://downloads.wordpress.org/plugin/picture-gallery.1.11.2.zip"
       },
       "options": {
         "activate": true
@@ -58,7 +58,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/paid-membership.4.17.0.zip"
+        "url": "https://downloads.wordpress.org/plugin/paid-membership.4.18.0.zip"
       },
       "options": {
         "activate": true
@@ -267,6 +267,10 @@
       "step": "login",
       "username": "admin",
       "password": "password"
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php'; if(!defined('VWPM_SHOWCASE_PROVISION')||!VWPM_SHOWCASE_PROVISION||'local'!==wp_get_environment_type()||!class_exists('VideoWhisper\\PaidContent\\Publication_Readiness'))throw new RuntimeException('Owned local guide demo required'); $admin=get_user_by('login','admin'); if(!$admin)throw new RuntimeException('Native demo administrator required');wp_set_current_user($admin->ID);if(get_option('vwpm_publication_demo_v1'))throw new RuntimeException('Fresh demo required');$id=wp_insert_post(array('post_type'=>'page','post_status'=>'publish','post_title'=>'First publication','post_name'=>'first-publication','post_content'=>'[videowhisper_publication_readiness]'));if(!$id)throw new RuntimeException('Guide page unavailable');update_option('vwpm_publication_demo_v1',array('page'=>$id,'read_only'=>true,'no_paid_grants_seeded'=>true),false);"
     }
   ]
 }

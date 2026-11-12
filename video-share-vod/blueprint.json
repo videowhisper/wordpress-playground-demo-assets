@@ -23,7 +23,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.9.1.zip"
+        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.9.2.zip"
       },
       "options": {
         "activate": true

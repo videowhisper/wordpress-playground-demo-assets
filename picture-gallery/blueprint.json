@@ -38,7 +38,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/picture-gallery.1.11.1.zip"
+        "url": "https://downloads.wordpress.org/plugin/picture-gallery.1.11.2.zip"
       },
       "options": {
         "activate": true
