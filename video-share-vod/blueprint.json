@@ -16,14 +16,16 @@
       "consts": {
         "WP_MEMORY_LIMIT": "512M",
         "WP_MAX_MEMORY_LIMIT": "512M",
-        "DISABLE_WP_CRON": true
+        "DISABLE_WP_CRON": true,
+        "WP_ENVIRONMENT_TYPE": "local",
+        "VW_NATIVEBLOCKS_SHOWCASE_V1": true
       }
     },
     {
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.9.2.zip"
+        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.10.0.zip"
       },
       "options": {
         "activate": true
@@ -197,12 +199,16 @@
       "step": "login",
       "username": "admin",
       "password": "password"
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php';if(!defined('VW_NATIVEBLOCKS_SHOWCASE_V1')||!VW_NATIVEBLOCKS_SHOWCASE_V1||'local'!==wp_get_environment_type())throw new RuntimeException('Owned local demo required');$u=get_user_by('login','admin');wp_set_current_user($u->ID);if(get_option('vw_nativeblocks_demo_v1'))throw new RuntimeException('Fresh demo required');$c='<!-- wp:heading --><h2 class=\"wp-block-heading\">Build your video sharing page</h2><!-- /wp:heading --><!-- wp:videowhisper/video-listing {\"layout\":\"grid\",\"perpage\":3,\"perrow\":3} /-->';$id=wp_insert_post(array('post_type'=>'page','post_status'=>'publish','post_title'=>'Build with native blocks','post_name'=>'build-with-native-blocks','post_content'=>$c));if(!$id)throw new RuntimeException('Native demo page unavailable');update_option('vw_nativeblocks_demo_v1',array('page'=>$id,'read_only'=>true,'no_paid_grants_seeded'=>true),false);"
     }
   ],
   "$schema": "https://playground.wordpress.net/blueprint-schema.json",
   "meta": {
-    "title": "Video Share VOD: themed video library",
+    "title": "Build your own video sharing site",
     "author": "videowhisper",
-    "description": "Eight fictional video entries with generated posters, native layout controls, illustrative ratings/likes and optional FansPaysite light/dark appearance. No real payments or processing. Latest verified native listings with fictional generated creator/content imagery. No real payment or membership grant is simulated."
+    "description": "Eight fictional video entries with generated posters, native layout controls, illustrative ratings/likes and optional FansPaysite light/dark appearance. No real payments or processing. Latest verified native listings with fictional generated creator/content imagery. No real payment or membership grant is simulated. Native video editor blocks reuse the existing access rules."
   }
 }
