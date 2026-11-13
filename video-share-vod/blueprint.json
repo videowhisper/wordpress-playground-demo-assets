@@ -25,7 +25,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.10.0.zip"
+        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.11.0.zip"
       },
       "options": {
         "activate": true
@@ -203,12 +203,16 @@
     {
       "step": "runPHP",
       "code": "<?php require_once '/wordpress/wp-load.php';if(!defined('VW_NATIVEBLOCKS_SHOWCASE_V1')||!VW_NATIVEBLOCKS_SHOWCASE_V1||'local'!==wp_get_environment_type())throw new RuntimeException('Owned local demo required');$u=get_user_by('login','admin');wp_set_current_user($u->ID);if(get_option('vw_nativeblocks_demo_v1'))throw new RuntimeException('Fresh demo required');$c='<!-- wp:heading --><h2 class=\"wp-block-heading\">Build your video sharing page</h2><!-- /wp:heading --><!-- wp:videowhisper/video-listing {\"layout\":\"grid\",\"perpage\":3,\"perrow\":3} /-->';$id=wp_insert_post(array('post_type'=>'page','post_status'=>'publish','post_title'=>'Build with native blocks','post_name'=>'build-with-native-blocks','post_content'=>$c));if(!$id)throw new RuntimeException('Native demo page unavailable');update_option('vw_nativeblocks_demo_v1',array('page'=>$id,'read_only'=>true,'no_paid_grants_seeded'=>true),false);"
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php';if(!defined('VW_NATIVEBLOCKS_SHOWCASE_V1')||!VW_NATIVEBLOCKS_SHOWCASE_V1||'local'!==wp_get_environment_type())throw new RuntimeException('Owned local demo required');$u=get_user_by('login','admin');wp_set_current_user($u->ID);$g=get_option('vw_nativeblocks_demo_v1');$p=get_post($g['page']??0);if(!$p)throw new RuntimeException('Native demo missing');$v=get_posts(array('post_type'=>'video','post_status'=>'publish','numberposts'=>1,'fields'=>'ids'));if($v&&!str_contains($p->post_content,'videowhisper/video-player'))wp_update_post(array('ID'=>$p->ID,'post_content'=>$p->post_content.'<!-- wp:heading --><h2 class=\"wp-block-heading\">Choose a video in the native editor</h2><!-- /wp:heading --><!-- wp:videowhisper/video-player {\"video\":\"'.$v[0].'\"} /-->'));update_option('vw_picker_agents_demo_v1',array('page'=>$p->ID,'no_agent_connection_granted'=>true,'read_only_proposals'=>true,'no_paid_grants_seeded'=>true),false);"
     }
   ],
   "$schema": "https://playground.wordpress.net/blueprint-schema.json",
   "meta": {
     "title": "Build your own video sharing site",
     "author": "videowhisper",
-    "description": "Eight fictional video entries with generated posters, native layout controls, illustrative ratings/likes and optional FansPaysite light/dark appearance. No real payments or processing. Latest verified native listings with fictional generated creator/content imagery. No real payment or membership grant is simulated. Native video editor blocks reuse the existing access rules."
+    "description": "Eight fictional video entries with generated posters, native layout controls, illustrative ratings/likes and optional FansPaysite light/dark appearance. No real payments or processing. Latest verified native listings with fictional generated creator/content imagery. No real payment or membership grant is simulated. Native video editor blocks reuse the existing access rules. Native page presets, category name search and an editable-video picker simplify page building. Agent assistance returns read-only review proposals and never grants an external connection automatically."
   }
 }
