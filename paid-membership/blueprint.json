@@ -3,7 +3,7 @@
   "meta": {
     "title": "Build your own fans paysite",
     "author": "videowhisper",
-    "description": "Fictional video/photo/document/audio catalog with five layouts, stars/likes, creator workspaces and optional browser capture. New captures use native review mode. Generated artwork and tones; no real payment. Optional native sign-in/signup/recovery, reviewed creator requests, public profiles and a private Following feed. Local demo email is suppressed; fictional credentials and artwork only. Configurable expandable purchase disclosures use a separate public demonstration terms page; no checkout, real payment or commercial grant is created. Latest verified native listings with fictional generated creator/content imagery. No real payment or membership grant is simulated. Private first-publication guidance and read-only readiness are available from the creator workspace and administrator menu. Native catalog and video editor blocks reuse the existing access rules. The administrator draft release calendar previews new member-release rules; batch saving is not enabled by the SQLite demo. Native page presets, category name search and an editable-video picker simplify page building. Agent assistance returns read-only review proposals and never grants an external connection automatically. Editorial previews retain the standalone native editor; optional Site Manager private reviews require separately approved tools. Membership repeat saves retain their existing policy."
+    "description": "Fictional video/photo/document/audio catalog with five layouts, stars/likes, creator workspaces and optional browser capture. New captures use native review mode. Generated artwork and tones; no real payment. Optional native sign-in/signup/recovery, reviewed creator requests, public profiles and a private Following feed. Local demo email is suppressed; fictional credentials and artwork only. Configurable expandable purchase disclosures use a separate public demonstration terms page; no checkout, real payment or commercial grant is created. Latest verified native listings with fictional generated creator/content imagery. No real payment or membership grant is simulated. Private first-publication guidance and read-only readiness are available from the creator workspace and administrator menu. Native catalog and video editor blocks reuse the existing access rules. The administrator draft release calendar previews new member-release rules; batch saving is not enabled by the SQLite demo. Native page presets, category name search and an editable-video picker simplify page building. Agent assistance returns read-only review proposals and never grants an external connection automatically. Editorial previews retain the standalone native editor; optional Site Manager private reviews require separately approved tools. Membership repeat saves retain their existing policy. Wallet renewal settings are available but default off. This SQLite demo never enables funding or seeds paid terms; native-wallet continuation requires separately qualified InnoDB hosting and explicit administrator/fan consent."
   },
   "landingPage": "/",
   "preferredVersions": {
@@ -58,7 +58,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/paid-membership.4.21.0.zip"
+        "url": "https://downloads.wordpress.org/plugin/paid-membership.4.22.0.zip"
       },
       "options": {
         "activate": true
