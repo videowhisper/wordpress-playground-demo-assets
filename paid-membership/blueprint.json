@@ -3,7 +3,7 @@
   "meta": {
     "title": "Build your own fans paysite",
     "author": "videowhisper",
-    "description": "Explore a fans paysite for one or many creators: mixed-media catalogs, profiles, frontend accounts, native blocks, private renewal health and native administrator proposal-only financial review. Wallet funding stays off in this SQLite demo; no paid terms or agent permissions are seeded. Financial correction execution is not included. Reviewed native wallet credits start off and require compatible MySQL/InnoDB plus separate administrator confirmation; this SQLite demo does not execute credits or seed paid terms. Native held-credit investigation is read-only. This SQLite demo keeps financial execution off and does not seed paid terms or credit operations."
+    "description": "Build a fans paysite for one or many creators with mixed-media layouts, dedicated account pages, profiles, follows and native editor blocks. Review the included bundle workflow and wallet guidance. Financial execution stays off; no paid grants or credit operations are seeded."
   },
   "landingPage": "/",
   "preferredVersions": {
@@ -38,7 +38,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.12.0.zip"
+        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.14.0.zip"
       },
       "options": {
         "activate": true
@@ -58,7 +58,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/paid-membership.4.27.0.zip"
+        "url": "https://downloads.wordpress.org/plugin/paid-membership.4.28.0.zip"
       },
       "options": {
         "activate": true
