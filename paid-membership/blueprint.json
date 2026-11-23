@@ -3,7 +3,7 @@
   "meta": {
     "title": "Build your own fans paysite",
     "author": "videowhisper",
-    "description": "Build a fans paysite for one or many creators with mixed-media layouts, dedicated account pages, profiles, follows and native editor blocks. Review native bundles, current membership status and explicit wallet-review guidance. Financial execution stays off; no paid grants or credit operations are seeded."
+    "description": "Build a fans paysite for one or many creators with mixed-media layouts, dedicated account pages, readable creator profiles, follows and native editor blocks. Explore approved demo avatars, optional public links and theme patterns. Financial execution stays off; no paid grants, wallet authorizations or credit operations are seeded."
   },
   "landingPage": "/",
   "preferredVersions": {
@@ -38,7 +38,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.14.0.zip"
+        "url": "https://downloads.wordpress.org/plugin/video-share-vod.3.15.2.zip"
       },
       "options": {
         "activate": true
@@ -58,7 +58,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/paid-membership.4.29.1.zip"
+        "url": "https://downloads.wordpress.org/plugin/paid-membership.4.30.0.zip"
       },
       "options": {
         "activate": true
@@ -88,7 +88,7 @@
       "step": "installTheme",
       "themeData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/theme/fanspaysite.2.7.10.zip"
+        "url": "https://downloads.wordpress.org/theme/fanspaysite.2.8.0.zip"
       },
       "options": {
         "activate": true
@@ -283,6 +283,10 @@
     {
       "step": "runPHP",
       "code": "<?php require_once '/wordpress/wp-load.php';$existing=get_option('vwpm_membership_status_demo_v1');if(!$existing){$id=wp_insert_post(array('post_type'=>'page','post_status'=>'publish','post_title'=>'My memberships','post_name'=>'my-memberships','post_content'=>'<p>Review current paid terms separately from original purchases and future wallet funding. This demonstration seeds no paid grants or financial operations.</p>[videowhisper_my_memberships]'),true);if(is_wp_error($id)){throw new RuntimeException('Membership status demo page could not be created.');}add_option('vwpm_membership_status_demo_v1',array('page'=>$id,'no_paid_grants_seeded'=>true));foreach(array_unique(array_values(get_nav_menu_locations()))as$menu){if($menu){wp_update_nav_menu_item($menu,0,array('menu-item-title'=>'My memberships','menu-item-object'=>'page','menu-item-object-id'=>$id,'menu-item-type'=>'post_type','menu-item-status'=>'publish'));}}}"
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php';\nuse VideoWhisper\\PaidContent\\Creator_Storefront as P;\nuse VideoWhisper\\PaidContent\\Creator_Profile_Pages_V2 as V;\nif(!defined('VWPM_SHOWCASE_PROVISION')||true!==VWPM_SHOWCASE_PROVISION||'local'!==wp_get_environment_type()||get_option('vwpm_profile_pages_demo_v2'))throw new RuntimeException('Fresh explicit local showcase required.');\n$f=get_option('vwpm_showcase_v1');$old=get_current_user_id();$admin=get_user_by('login','admin');wp_set_current_user($admin->ID);update_option('permalink_structure','/%postname%/');\n$r=V::save(array('_wpnonce'=>wp_create_nonce('vwpm_creator_pages_v2'),'revision'=>V::revision(),'readable'=>'1','location'=>'1','links'=>'1'));if(is_wp_error($r)||!V::base())throw new RuntimeException('Native public creator routing unavailable.');\n$urls=array();foreach($f['creators']as$i=>$uid){wp_set_current_user($uid);$key='vwpm_storefront_site_'.get_current_blog_id();$p=get_user_meta($uid,$key,true);$r=P::save(array('_wpnonce'=>wp_create_nonce('vwpm_storefront_'.get_current_blog_id().'_'.$uid),'revision'=>hash('sha256',maybe_serialize($p)),'public'=>'1','tagline'=>$p['tagline'],'bio'=>$p['bio'],'cover_post'=>(string)$p['cover_post'],'avatar_post'=>(string)($p['avatar_post']??0),'profile_slug'=>$p['slug']??'creator','specialty'=>$p['specialty']??'','website'=>$p['website']??'','public_location'=>array('Ceramics studio','Field recording studio','Creative workshop')[$i],'public_links'=>array(array('label'=>'About this demo','url'=>'https://fanspaysite.com/plugin/'))));if(is_wp_error($r))throw new RuntimeException('Native optional public profile fields unavailable.');$urls[]=P::profile_url($uid);if(!str_contains(end($urls),'/vw-creator/'.$uid.'/'))throw new RuntimeException('Readable creator identity unavailable.');}\nwp_set_current_user($old);update_option('vwpm_profile_pages_demo_v2',array('urls'=>$urls,'generated_demo_artwork_reused'=>true,'optional_fields'=>true,'no_paid_grants_seeded'=>true,'no_wallet_consent_seeded'=>true),false);flush_rewrite_rules(false);echo 'Native demo creator pages prepared; financial execution remains off.';"
     }
   ]
 }
