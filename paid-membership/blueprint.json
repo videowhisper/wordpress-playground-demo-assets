@@ -58,7 +58,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://downloads.wordpress.org/plugin/paid-membership.4.30.0.zip"
+        "url": "https://downloads.wordpress.org/plugin/paid-membership.4.30.1.zip"
       },
       "options": {
         "activate": true
